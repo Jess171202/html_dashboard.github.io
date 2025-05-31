@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="es">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>Página 1</title>
+  <link rel="stylesheet" href="nicepage.css" media="screen">
+  <link rel="stylesheet" href="index.css" media="screen">
+  <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+  <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+  <meta name="theme-color" content="#478ac9">
+  <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Open+Sans">
+  <script type="module">
+  // Importar SDK de Firebase
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+  import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+
+  // CONFIGURACIÓN DE FIREBASE (modificar con tus credenciales reales)
+  const firebaseConfig = {
+    apiKey: "AIzaSyDf6QnPWraQw7XIZ--VN3DFHPyYIEs_ZEY",
+    authDomain: "datos-39135.firebaseapp.com",
+    databaseURL: "https://datos-39135-default-rtdb.firebaseio.com",
+    projectId: "datos-39135",
+    storageBucket: "datos-39135.firebasestorage.app",
+    messagingSenderId: "848363351991",
+    appId: "1:848363351991:web:a01ff570095a008efa8232",
+    measurementId: "G-3WXMSWZZ55"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  const rootRef = ref(db, '/');
+
+  onValue(rootRef, (snapshot) => {
+    const data = snapshot.val();
+    if (!data) {
+      console.error("❌ No se recibieron datos desde Firebase."); // 👈 Línea añadida
+      return;
+    }
+
+    // Mostrar en consola los datos recibidos
+    console.log("✅ Datos recibidos desde Firebase:", data); // 👈 Línea añadida
+
+    // Mostrar los datos en la interfaz
+    document.getElementById("temp").textContent = `${data.temperatura} °C`;
+    document.getElementById("uv").textContent = `${data.indice_uv} (${data.categoria_uv})`;
+    document.getElementById("viento").textContent = `${data.velocidad_viento} m/s`;
+    document.getElementById("humedad").textContent = `${data.humedad} %`;
+    document.getElementById("presion").textContent = `${data.presion} hPa`;
+    document.getElementById("altitud").textContent = `${data.altitud} m`;
+  }, (error) => {
+    console.error("⚠️ Error al leer los datos de Firebase:", error); // 👈 Línea añadida
+  });
+ </script>
+
+</head>
+
+<body class="u-body u-xl-mode" data-lang="es">
+  <header class="u-header u-custom-color-1">
+    <div class="header-container">
+      <div class="u-container-logo-text">
+        <a href="#" class="u-image u-logo">
+          <img src="images/meteorology_9184786.png" class="u-logo-image">
+        </a>
+        <p class="u-text u-site-title">Clima UPS-Sur, Quito</p>
+      </div>
+      <div class="date-time" id="date-time"></div>
+    </div>
+  </header>
+
+  <!-- Sección Principal -->
+  <section class="u-align-center u-clearfix u-grey-5 u-section-1" id="carousel_3dba">
+    <div class="u-container-style u-expanded-width u-group u-image u-shading u-image-1" style="background-image: url('images/photo-1505533321630-975218a5f66f.jpeg');">
+      <div class="u-container-layout">
+        <h1 class="u-align-center u-text u-text-body-alt-color">El Tiempo Ahora</h1>
+        <div class="u-layout-wrap">
+          <div class="u-layout-row">
+
+            <!-- Temperatura -->
+            <div class="u-align-center u-container-style u-layout-cell u-radius u-shape-round u-size-20 u-white">
+              <div class="u-container-layout">
+                <img class="u-image u-image-contain u-image-default u-preserve-proportions" src="images/warm_6563814.png" alt="">
+                <h4 class="u-align-center u-text">Temperatura</h4>
+                <p id="temp">-- °C</p>
+              </div>
+            </div>
+
+            <!-- Índice UV -->
+            <div class="u-align-center u-container-style u-layout-cell u-radius u-shape-round u-size-20 u-white">
+              <div class="u-container-layout">
+                <img class="u-image u-image-contain u-image-default u-preserve-proportions" src="images/protection_10636297.png" alt="">
+                <h4 class="u-align-center u-text">Índice UV</h4>
+                <p id="uv">--</p>
+              </div>
+            </div>
+
+            <!-- Viento -->
+            <div class="u-align-center u-container-style u-layout-cell u-radius u-shape-round u-size-20 u-white">
+              <div class="u-container-layout">
+                <img class="u-image u-image-contain u-image-default u-preserve-proportions" src="images/windsock_1113751.png" alt="">
+                <h4 class="u-align-center u-text">Velocidad / Dirección del viento</h4>
+                <p id="viento">--</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Segunda Sección -->
+  <section class="u-clearfix u-grey-10 u-section-2">
+    <div class="u-sheet">
+      <div class="u-layout-wrap">
+        <div class="u-layout-row">
+
+          <!-- Humedad -->
+          <div class="u-align-center u-container-style u-layout-cell u-radius u-shape-round u-size-20 u-white">
+            <div class="u-container-layout">
+              <img class="u-image u-image-contain u-image-default u-preserve-proportions" src="images/humidity_15991511.png" alt="">
+              <h4 class="u-align-center u-text">Humedad</h4>
+              <p id="humedad">-- %</p>
+            </div>
+          </div>
+
+          <!-- Presión -->
+          <div class="u-align-center u-container-style u-layout-cell u-radius u-shape-round u-size-20 u-white">
+            <div class="u-container-layout">
+              <img class="u-image u-image-contain u-image-default u-preserve-proportions" src="images/barometer_13882512.png" alt="">
+              <h4 class="u-align-center u-text">Presión</h4>
+              <p id="presion">-- hPa</p>
+            </div>
+          </div>
+
+          <!-- Altitud -->
+          <div class="u-align-center u-container-style u-layout-cell u-radius u-shape-round u-size-20 u-white">
+            <div class="u-container-layout">
+              <img class="u-image u-image-contain u-image-default u-preserve-proportions" src="images/island_7590651.png" alt="">
+              <h4 class="u-align-center u-text">Altitud</h4>
+              <p id="altitud">-- m</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Script para mostrar fecha y hora -->
+  <script>
+    window.onload = function () {
+      function updateDateTime() {
+        const now = new Date();
+        const options = {
+          weekday: 'short', year: 'numeric', month: 'short',
+          day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'
+        };
+        const dateTimeEl = document.getElementById('date-time');
+        if (dateTimeEl) {
+          dateTimeEl.textContent = now.toLocaleString('es-EC', options);
+        }
+      }
+
+      updateDateTime();
+      setInterval(updateDateTime, 1000);
+    };
+  </script>
+</body>
+</html>

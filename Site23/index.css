@@ -1,0 +1,181 @@
+/* Estilos generales */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box;
+}
+
+.u-section-1 {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/photo-1505533321630-975218a5f66f.jpeg') no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+  color: #fff;
+  padding: 100px 20px 60px;
+}
+
+.u-header {
+  padding: 15px 20px;
+}
+
+.u-container-logo-text {
+  display: flex;
+  align-items: center;       /* Centrado vertical */
+  gap: 15px;                 /* Espacio entre imagen y texto */
+}
+
+.u-logo-image {
+  width: 60px;               /* Tamaño reducido de la imagen */
+  height: auto;
+}
+
+.u-site-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(2, 1, 1);
+  margin: 0;
+}
+
+.u-logo-image {
+  width: 70px;
+  height: 70px;
+}
+
+
+/* Título */
+.u-section-1 .u-text-1 {
+  font-size: 48px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+/* Contenedor de tarjetas */
+.u-section-1 .u-layout-wrap-1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* Tarjeta base */
+.u-section-1 .u-layout-cell {
+  background: white;
+  color: #333;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  flex: 1 1 300px;
+  max-width: 340px;
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.u-section-1 .u-layout-cell:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
+
+/* Imágenes dentro de las tarjetas */
+.u-section-1 .u-layout-cell img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px;
+  object-fit: contain;
+}
+
+/* Textos de tarjetas */
+.u-section-1 .u-layout-cell .u-text {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Sección 2 */
+.u-section-2 {
+  background: #f7f7f7;
+  padding: 60px 20px;
+  color: #333;
+}
+
+.u-section-2 .u-layout-wrap-1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.u-section-2 .u-layout-cell {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  flex: 1 1 300px;
+  max-width: 340px;
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.u-section-2 .u-layout-cell:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.15);
+}
+
+.u-section-2 .u-layout-cell img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px;
+}
+
+.u-section-2 .u-text {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .u-section-1 .u-text-1 {
+    font-size: 36px;
+  }
+
+  .u-section-1,
+  .u-section-2 {
+    padding: 60px 10px;
+  }
+}
+
+.u-header {
+  padding: 10px 20px;
+}
+
+.header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+}
+.date-time {
+      font-size: 16px;
+      color: rgb(6, 6, 6);
+      font-weight: bold;
+}
+.u-container-logo-text {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+}
+.u-logo-image {
+      width: 80px;
+      height: 80px;
+}
+.u-site-title {
+      font-size: 30px;
+      font-weight: bold;
+      color: rgb(0, 0, 0);
+}
